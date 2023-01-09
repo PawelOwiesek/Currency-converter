@@ -1,10 +1,10 @@
 {
-    const welcome = () => {
+    const showWelcomeMessage = () => {
 
         console.log("Hello");
 
     }
-    const recalculate = (contant, currency) => {
+    const calculateResult = (contant, currency) => {
 
         const GBP = 5.05;
         const EUR = 4.78;
@@ -19,7 +19,7 @@
 
         }
     }
-    const currentRate = (currency) => {
+    const showCurrentRate = (currency) => {
         const GBP = 5.05;
         const EUR = 4.78;
         const USD = 4.82;
@@ -36,25 +36,25 @@
 
     const updateResultText=(result,currency)=>{
         const amountElement = document.querySelector(".js-amount");
-        amountElement.innerText = `${result.toFixed(2)} ${currency}`
+        amountElement.innerText = `${result.toFixed(2)} ${currency}`;
     }
 
     const updateRateText=(dayRate,currency,)=>{
         const rate = document.querySelector(".js-rate");
-        rate.innerText = `${" " + dayRate + " " + currency}`
+        rate.innerText = `${" " + dayRate + " " + currency}`;
         
     }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        const PLNElement = document.querySelector(".js-PLN");
+        const plnElement = document.querySelector(".js-pln");
         const currencyElement = document.querySelector(".js-currency");
-        const contant = +PLNElement.value;
+        const contant = +plnElement.value;
         const currency = currencyElement.value;
-        const result = recalculate(contant, currency);
-        const dayRate = currentRate(currency);
-         updateRateText(dayRate,currency);
-         updateResultText(result,currency);
+        const result = calculateResult(contant, currency);
+        const dayRate = showCurrentRate(currency);
+        updateRateText(dayRate,currency);
+        updateResultText(result,currency);
         document.querySelector(".js-formCurrency").reset();
     };
 
@@ -62,7 +62,7 @@
 
         const formCurrencyElement = document.querySelector(".js-formCurrency");
         formCurrencyElement.addEventListener("submit", onFormSubmit);
-        welcome();
+        showWelcomeMessage();
     }
 
     init();
