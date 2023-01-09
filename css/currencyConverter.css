@@ -52,6 +52,7 @@
 }
 
 .currencyConverter__strong {
+    color: #feffff;
     font-size: 24px;
     font-weight: bold;
 }
@@ -59,4 +60,8 @@
 .currencyConverter__paragraph {
     color: #640505c9;
     font-size: 20px;
+}
+
+.currencyConverter__rate {
+    color: #feffff;
 }
