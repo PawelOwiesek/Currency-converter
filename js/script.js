@@ -34,11 +34,13 @@
         }
     }
 
-    const updateResultText=(amountElement,result,currency)=>{
+    const updateResultText=(result,currency)=>{
+        const amountElement = document.querySelector(".js-amount");
         amountElement.innerText = `${result.toFixed(2)} ${currency}`
     }
 
-    const updateRateText=(rate,dayRate,currency,)=>{
+    const updateRateText=(dayRate,currency,)=>{
+        const rate = document.querySelector(".js-rate");
         rate.innerText = `${" " + dayRate + " " + currency}`
         
     }
@@ -47,14 +49,12 @@
         event.preventDefault();
         const PLNElement = document.querySelector(".js-PLN");
         const currencyElement = document.querySelector(".js-currency");
-        const rate = document.querySelector(".js-rate");
-        const amountElement = document.querySelector(".js-amount");
         const contant = +PLNElement.value;
         const currency = currencyElement.value;
         const result = recalculate(contant, currency);
         const dayRate = currentRate(currency);
-         updateRateText(rate,dayRate,currency);
-         updateResultText(amountElement,result,currency);
+         updateRateText(dayRate,currency);
+         updateResultText(result,currency);
         document.querySelector(".js-formCurrency").reset();
     };
 
